@@ -1,0 +1,28 @@
+<table border="1">
+    <tr>
+      <td>Номер</td>
+      <td>Ус-во</td>
+      <td>Время</td>
+      <td>Широта</td>
+      <td>Долгота</td>
+      <td>Уровень CO2</td>
+  </tr>
+    {% for task in tasks %}
+    <tr>
+      <td>{{ task.id }}</td>
+      <td>{{ task.author }}</td>
+      <td>{{ task.time }}</td>
+      <td>{{ task.latitude }}</td>
+      <td>{{ task.longitude }}</td>
+      <td>{{ task.co2 }}</td>
+  </tr>
+    {% endfor %}
+</table>
+
+<form action="/task" method="post">
+    Имя ус-ва <p><input type="text" name="author"></p>
+    Широта <p><input type="number" name="lat"></p>
+    Долгота <p><input type="number" name="lon"></p>
+    Уровень СО2 <p><input type="number" name="co2"></p>
+    <input type="submit" value="Add record">
+</form>
